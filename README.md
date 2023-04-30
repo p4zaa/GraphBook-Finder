@@ -18,3 +18,6 @@ A website for finding books in the Chaloklum Bookstore with graph database (Neo4
 
 ## Graph Model for books finder
 <img src='img/Bookstore Data Model.png' width='80%'>
+
+---
+<img src='img/SCR-25660430-mzgb.png'>
