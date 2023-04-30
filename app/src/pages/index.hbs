@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <!-- 
+      This is the main Handlebars template for the site 
+      - When the user visits the homepage or submits a color the app calls the endpoints in server.js
+      - The server script passes data in here and the Handlebars code builds it into the HTML page
+    -->
+    
+    <!-- Google Tag and Analytic Link-->
+    <!--<link rel="analytics" href="/analytics.html">-->
+    
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{{seo.title}}</title>
+    
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="{{seo.url}}">
+    <meta name="description" content="{{seo.description}}">
+    <meta property="og:title" content="{{seo.title}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{seo.url}}">
+    <meta property="og:description" content="{{seo.description}}">
+    <meta property="og:image" content="{{seo.image}}">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- This is a handlebars IF statement
+         Checking for a custom "color" parameter from server.js -->
+    {{#if color}} 
+    <!-- If there is a color value, update the style for the page title -->
+    <style>
+      .title {
+        color: {{color}};
+      }
+    </style>
+    {{/if}}    
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content" role="main">
+      <!-- This is the start of content for our page -->
+<h1 class="title">Book Finder!</h1>
+
+<!-- Add text indicating that we've changed color OR had an error -->
+{{#if random}}
+  <p class="color-info">
+    <span class="rainbow-text">YOU FOUND RANDOM BOOKS!</span>
+  </p>
+{{/if}}
+        
+{{#if color}}
+  <p class="color-info">
+    <b>{{color}}</b> is <span class="rainbow-text">AVAILABLE!</span>
+  </p>
+{{/if}}
+        
+{{#if colorError}}
+  <p class="color-info">
+    <!-- The server script passes colorError if the user submission can't be matched -->
+    Hmm. Couldn't find <b>{{colorError}}</b> 🤧
+    <!--<a href="?randomize=go">Try a random book?</a>-->
+  </p>
+{{/if}}
+
+<div class="color-form">
+  <!-- Our default paragraph/message -->
+  {{#unless random}}
+      {{#unless color}}
+        <!-- There are fancier ways to do this, but nesting two "#unless" statements sets up an "if these are both missing..." condition -->
+        <p>
+          Finding books in Chaloklum Bookstore. 
+        </p>
+      {{/unless}}
+  {{/unless}}
+
+  <!-- The "What's your favorite color?" form sends a POST request to the server Check server.js to see how it works -->
+  <form class="color-search" method="post">
+    <label for="color">
+      <!-- We use the handlebars "#if" statement so the form can adapt to its situation -->
+      {{#if color}}
+        Find another book? 😎<br>
+      {{else}}
+        What's the book you're looking for? 🤓<br>
+      {{/if}}
+      <input id="color" name="color" required="required" type="text" placeholder="Star Wars">
+    </label>
+    <!-- If the user submits a value through the form it'll be passed to the server in the request body  -->
+    <button type="submit">Search! ⮐</button>
+  </form>
+  
+  <!-- This randomize link communicates with the server (server.js) using a querystring and GET request instead of a form POST -->
+  <!-- Can't decide? <a href="?randomize=go">Use a random book!</a> -->
+</div>
+  <!-- Button to show wishlist books -->
+<div class="minibar-btn">
+  <button id="miniWish" class="minibar" onclick="window.location.href='https://chaloklum-books.glitch.me/wishlist'; this.disabled=true">
+    Wishlist
+  </button>
+  <button disabled id="miniHist" class="minibar" type="minibutt">
+    History
+  </button>
+  <button id="miniRand" class="minibar" onclick="window.location.href='/'; window.location.href='/random';">
+    🎲
+  </button>
+  <button id="miniRe" class="minibar" onclick="window.location.href='/'; this.disabled=true">
+    🧽
+  </button>
+</div>
+
+<!-- Here's where we display the books table -->
+{{#if books.length}}
+  <br>
+  🎉 Yeah! we found {{ books.length }} book(s)! 🎊
+  <br>
+  <br>
+  <table style="border-collapse: collapse; width: 100%; max-width: 800px; margin: auto; font-family: HK Grotesk; font-size: 15px;">
+    <thead>
+      <tr style="background-color: #f2d3c0;">
+        <th style="padding: 12px; text-align: center;">Title</th>
+        <th style="padding: 12px; text-align: center;">Author</th>
+        <th style="padding: 12px; text-align: center;">Genre</th>
+        <th style="padding: 12px; text-align: center;">Add to Wishlist</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each books}}
+        <tr style="background-color: #f9e6df;">
+          <td style="padding: 12px;">{{title}}</td>
+          <td style="padding: 12px;">{{authors}}</td>
+          <td style="padding: 12px;">{{genres}}</td>
+          <td style="padding: 12px; text-align: center;">
+            <button id="wishBtn" class="wishBtn" onclick="addToWishlist('{{this.id}}'); this.innerHTML='♥︎ Added!'; this.disabled=true; this.classList.remove('wishBtn'); this.classList.add('clicked-wishBtn');">♡ Add to Wishlist</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <br>
+  <p style="text-align: center; font-size: 1.2rem; color: #7d7d7d;">No books found.</p>
+{{/if}}
+
+<script>
+  function addToWishlist(id) {
+    // Send a request to the server to add the book with the given id to the user's wishlist
+    fetch('/wishlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ bookId: id })
+    })
+    .then(response => {
+      if (response.ok) {
+        //alert('Book added to wishlist!');
+        
+      } else {
+        //alert('Error adding book to wishlist.');
+      }
+    })/*
+    .catch(error => {
+      console.error(error);
+      alert('Error adding book to wishlist.');
+    });*/
+  }
+</script>
+
+
+<div class="illo-container">
+  <img src="https://cdn.glitch.global/49b2ed03-d342-4a62-a646-188fdc7d8b80/lulu.png?v=1678800268312" class="illustration" alt="LuLu" />
+</div>
+
+<!-- Instructions on using this project -->
+<div class="instructions">
+  <h2>Chaloklum Books</h2>
+  <h2>✦ A Project by Pathompong Muangthong ✦</h2>
+  <p>☆～（ゝ。∂）14 March 2023</p>
+  <!--<p>Hi</p>-->
+</div>

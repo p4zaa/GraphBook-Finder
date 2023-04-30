@@ -1,0 +1,490 @@
+/******************************************************************************
+START Glitch hello-app default styles
+
+The styles in this section do some minimal CSS resets, set default fonts and 
+colors, and handle the layout for our footer and "Remix on Glitch" button. If
+you're new to CSS they may seem a little complicated, but you can scroll down
+to this section's matching END comment to see page-specific styles.
+******************************************************************************/
+/* Our default values set as CSS variables */
+:root {
+  --color-bg: #BDC9FF;
+  --color-text-main: #000000;
+  --color-primary: #AFECE0;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: "HK Grotesk";
+  --font-family-header: "HK Grotesk";
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+
+/* Import fonts */
+@font-face {
+  font-family: HK Grotesk;
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+    format("opentype");
+}
+@font-face {
+  font-family: HK Grotesk;
+  font-weight: bold;
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+    format("opentype");
+}
+@font-face {
+  font-family: VT323;
+  src: url("https://cdn.glitch.global/49b2ed03-d342-4a62-a646-188fdc7d8b80/VT323-Regular.ttf?v=1678792961258");
+}
+@font-face {
+  font-family: Daydream;
+  src: url('https://cdn.glitch.global/49b2ed03-d342-4a62-a646-188fdc7d8b80/Daydream.ttf?v=1678793243338')
+}
+@font-face {
+  font-family: Comfortaa;
+  src: url('https://cdn.glitch.global/49b2ed03-d342-4a62-a646-188fdc7d8b80/Comfortaa-VariableFont_wght.ttf?v=1678794003963')
+}
+@font-face {
+  font-family: Bold04b;
+  src: url('https://cdn.glitch.global/49b2ed03-d342-4a62-a646-188fdc7d8b80/04B_30__.TTF?v=1678799182163')
+}
+
+/* Our remix on glitch button */
+.btn--remix {
+  font-family: HK Grotesk;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1rem;
+  font-weight: 500;
+  height: 2.75rem;
+  align-items: center;
+  cursor: pointer;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.btn--remix img {
+  margin-right: 0.5rem;
+}
+.btn--remix:hover {
+  background-color: #D0FFF1;
+}
+
+/* Navigation grid */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto 0;
+  padding: 1rem 0 0.75rem 0;
+  width: 100%;
+  flex-wrap: wrap;
+  border-top: 4px solid #fff;
+}
+
+.footer a:not(.btn--remix):link,
+a:not(.btn--remix):visited {
+  font-family: HK Grotesk;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: #000;
+  text-decoration: none;
+  border-style: none;
+}
+.footer a:hover {
+  background: var(--color-primary);
+}
+
+.footer .links {
+  padding: 0.5rem 1rem 1.5rem;
+  white-space: nowrap;
+}
+
+.divider {
+  padding: 0 1rem;
+}
+/******************************************************************************
+END Glitch hello-app default styles
+******************************************************************************/
+
+body {
+  font-family: Comfortaa;
+  background-color: var(--color-bg);
+}
+
+/* Page structure */
+.wrapper {
+  min-height: var(--wrapper-height);
+  display: grid;
+  place-items: center;
+  margin: 0 1rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+
+p {
+  font-family: Comfortaa;
+  font-size: 1.25rem;
+}
+
+/* Title h1 style */
+.title {
+  color: #FFFFFF;
+  font-family: VT323;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 100%;
+  margin: 2rem 0 0;
+}
+
+/* Very light scaling for our illustration */
+.illo-container {
+  display: flex;
+  justify-content: center;
+}
+.illustration {
+  max-width: 100%;
+  max-height: 250px;
+  margin-top: 1rem;
+}
+
+/* Styles for our custom color form and its results */
+.color-info {
+  margin-left: 5px;
+}
+.color-search {
+  margin-top: 2rem;
+}
+.color-form {
+  width: 100%;
+  max-width: 500px;
+  margin-left: 5px;
+}
+.color-form a:not(.btn--remix) {
+  font-weight: bold;
+  color: var(--color-text-main);
+  margin-top: 8px;
+}
+.color-form button {
+  background-color: lightgreen;
+  color: black;
+  margin-top: 10px;
+  margin-left: 2px;
+  padding: 0.5rem 0.5rem;
+}
+.color-form button:hover {
+  cursor: pointer;
+  background-color: gold;
+  color: black;
+
+  /*box-shadow: -8px 4px 20px #9BE7D8;*/
+}
+.color-form button:active {
+  background-color: green;
+  color: white;
+}
+.minibar-btn {
+  margin-left: 5px;
+  margin-top: 0px;
+}
+/* Search Button*/
+
+form {
+  margin: 0.75rem 0;
+}
+button,
+input {
+  font-family: inherit;
+  font-size: 100%;
+  background: #FFFFFF;
+  border: 1.8px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+input {
+  width: 255px;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+label {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Instructions */
+.instructions {
+  font-family: VT323;
+  margin: 1rem auto 0;
+  text-align: center;
+}
+.instructions p {
+  font-size: 1rem;
+  font-family: VT323;
+  text-align: center;
+  color: white;
+}
+h2 {
+  color: white;
+}
+
+/* Books Table */
+.books-table-container {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.books-table th,
+.books-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.books-table th {
+  background-color: #eee;
+}
+
+.books-table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #d4d4d4;
+  padding: 8px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Rainbow text */
+.rainbow-text {
+  font-family: Bold04b;
+  font-size: 18px;
+  background-image: linear-gradient(to right, red, orange, green, blue, indigo, violet);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  animation: rainbow 3s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 200% 0;
+  }
+  25% {
+    background-position: 150% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  75% {
+  background-position: 50% 0;
+}
+  100% {
+  background-position: 0% 0;
+}
+}
+
+
+
+/* Add to wishlist button */
+.wishBtn {
+  background-color: skyblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.wishBtn:hover {
+  background-color: deepskyblue;
+}
+
+.wishBtn:active {
+  background-color: dodgerblue;
+}
+
+.clicked-wishBtn {
+  background-color: deepskyblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Remove from wishlist button */
+.removeBtn {
+  background-color: salmon;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  background-color: tomato;
+}
+
+.removeBtn:active {
+  background-color: red;
+}
+
+.clicked-removeBtn {
+  background-color: lightgrey;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Add new book button */
+.addNewBtn {
+  background-color: greenyellow;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addNewBtn:hover {
+  background-color: lime;
+}
+
+.addNewBtn:active {
+  background-color: yellowgreen;
+}
+
+.clicked-addNewBtn {
+  background-color: lightgreen;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Minibar Buttons */
+.minibar {
+  font-family: inherit;
+  font-size: 90%;
+  background-color: pink;
+  border: 1.8px solid #000000;
+  box-sizing: border-box;
+  border-radius: 60px;
+  padding: 0.5rem 1rem;
+}
+
+.minibar:hover {
+  cursor: pointer;
+  background-color: lightpink;
+  color: black;
+}
+.minibar:active {
+  background-color: hotpink;
+  color: white;
+}
+
+/* Clicked Minibar Button*/
+.clicked-minibar {
+  background-color: dodgerblue;
+  color: white;
+  font-size: 90%;
+  padding: 0.5rem 1rem;
+  border: 1.8px solid dodgerblue;
+  border-radius: 60px;
+  cursor: not-allowed; /* make the button unclickable */
+  opacity: 1; /* reduce the opacity to indicate that the button is disabled */
+}
+/* Faded Minibar Button*/
+.fade-minibar {
+  background-color: pink;
+  color: white;
+  font-size: 90%;
+  padding: 0.5rem 1rem;
+  border: 1.8px solid grey;
+  border-radius: 60px;
+  cursor: pointer; /* make the button unclickable */
+  opacity: 0.5; /* reduce the opacity to indicate that the button is disabled */
+}
+.fade-minibar:hover{
+  font-family: inherit;
+  font-size: 90%;
+  background-color: lightpink;
+  color: black;
+  border: 1.8px solid black;
+  box-sizing: border-box;
+  border-radius: 60px;
+  padding: 0.5rem 1rem;
+  opacity: 1;
+}
+.fade-minibar:active{
+  font-family: inherit;
+  font-size: 90%;
+  background-color: hotpink;
+  color: black;
+  border: 1.8px solid black;
+  box-sizing: border-box;
+  border-radius: 60px;
+  padding: 0.5rem 1rem;
+  opacity: 1;
+}
+
+/* MiniRefresh Buttons */
+#miniRe {
+  font-family: inherit;
+  font-size: 100%;
+  background-color: transparent;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 0.5rem 0.5rem;
+}
+/* MiniRandom Buttons */
+#miniRand {
+  font-family: inherit;
+  font-size: 100%;
+  background-color: transparent;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+}
