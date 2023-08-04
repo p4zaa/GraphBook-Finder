@@ -16,7 +16,7 @@ A website for finding books in the Chaloklum Bookstore with graph database (Neo4
 - NodeJS
 - Cypher (neo4j database query language)
 
-## Graph Model for books finder
+## Data Model for books finder
 <img src='img/Bookstore Data Model.png' width='80%'>
 
 ---
