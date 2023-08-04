@@ -1,7 +1,6 @@
 # Book Finder Website for Bookstore Connected with Graph Database
 A website for finding books in the Chaloklum Bookstore with graph database (Neo4j) </br>
 > [Live Site Here](https://chaloklum-books.glitch.me) </br>
-> [Code Here](https://glitch.com/edit/#!/chaloklum-books) </br>
 
 > [FIXED :'>] ~~🚧 Since the Free AuraDB Cloud Service auto deleted my database instance of the books database. So, you will not able to find any books now :'<~~
 
