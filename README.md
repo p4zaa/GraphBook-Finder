@@ -8,8 +8,8 @@ A website for finding books in the Chaloklum Bookstore with graph database (Neo4
 
 ## Tools and Frameworks
 ### Platforms
-- Project was developed on [glitch.com](https://glitch.com/)
-- Database live on [Neo4j AuraDB cloud service](https://console.neo4j.io/)
+- Project hosting on [glitch.com](https://glitch.com/)
+- Database: [Neo4j AuraDB cloud service](https://console.neo4j.io/)
 ### Frontend-Backend
 - HTML-CSS
 - NodeJS
