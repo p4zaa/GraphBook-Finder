@@ -4,6 +4,10 @@ GraphBook Finder is a web application designed to help users discover books avai
 
 🚧 **Note:** Since this project uses free tier AuraDB Cloud Service it will pause the database after inactive for a while, this will cause the search function to not retrieved any books in the database.
 
+## How do I get all these books' data?
+
+Checkout my ISBN-based scrapping here: [ScrapBook-ISBN-based-retrieval](https://github.com/p4zaa/ScrapBook-ISBN-based-retrieval)
+
 ## Live Site Demo
 
 The live demo version of the application can be accessed [here](https://chaloklum-books.glitch.me). </br>
