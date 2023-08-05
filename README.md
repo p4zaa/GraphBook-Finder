@@ -33,7 +33,7 @@ The project is built using the following tools and frameworks:
 
 ## Data Model for books finder
 
-<img src='img/Bookstore Data Model.png' width='80%'>
+<img src='img/Bookstore Data Model JPG.jpeg' width='60%'>
 
 ## Contribution
 
