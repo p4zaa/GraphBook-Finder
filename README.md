@@ -31,9 +31,13 @@ The project is built using the following tools and frameworks:
 *   **User-Friendly Interface:** The website offers an intuitive and user-friendly interface, making it easy for both book enthusiasts and casual readers to navigate and find books of interest.
 *   **Responsive Design:** The application is designed to be responsive, ensuring that users can access it from various devices and screen sizes.
 
-## Data Model for books finder
+## Data Model
 
-<img src='img/Bookstore Data Model JPG.jpeg' width='60%'>
+<img src='img/db.schema.visualization.png' width='90%'>
+
+## Process overview
+
+
 
 ## Contribution
 
