@@ -37,7 +37,7 @@ The project is built using the following tools and frameworks:
 
 ## Process overview
 
-
+<img src='img/book finder overview.png' width='60%'>
 
 ## Contribution
 
