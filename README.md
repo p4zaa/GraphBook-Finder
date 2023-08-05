@@ -1,23 +1,52 @@
-# Book Finder Website for Bookstore Connected with Graph Database
-A website for finding books in the Chaloklum Bookstore with graph database (Neo4j) </br>
-> [Live Site Here](https://chaloklum-books.glitch.me) </br>
+# GraphBook Finder: Book Finder Website for Bookstore Connected with Graph Database
 
-> [FIXED :'>] ~~🚧 Since the Free AuraDB Cloud Service auto deleted my database instance of the books database. So, you will not able to find any books now :'<~~
+GraphBook Finder is a web application designed to help users discover books available at the *Chaloklum Bookstore* using a graph database (Neo4j). The website provides an intuitive interface for users to search and explore the vast collection of books, making it easier for them to find their desired titles.
 
+🚧 **Note:** Since this project uses free tier AuraDB Cloud Service it will pause the database after inactive for a while, this will cause the search function to not retrieved any books in the database.
+
+## Live Site Demo
+
+The live demo version of the application can be accessed [here](https://chaloklum-books.glitch.me). </br>
+> The demo website might take time to start the project server. </br>
 <img src='img/SCR-25660430-mtvo.png' width='50%'>
 
 ## Tools and Frameworks
-### Platforms
-- Project hosting on [glitch.com](https://glitch.com/)
-- Database type: Graph Database ([Neo4j](https://neo4j.com/))
-- Database hosting on [Neo4j AuraDB cloud service](https://console.neo4j.io/)
-### Frontend-Backend
-- HTML-CSS
-- NodeJS
-- Cypher (neo4j database query language)
+
+The project is built using the following tools and frameworks:
+
+*   Frontend: HTML, CSS
+*   Backend: Node.js
+*   Database: [Neo4j](https://neo4j.com/) (Graph Database)
+*   Database Hosting: [Neo4j AuraDB Cloud Service](https://console.neo4j.io/)
+*   Project Hosting: [glitch.com](https://glitch.com/)
+
+## Features
+
+*   **Book Search:** Users can search for books based on title using the powerful graph database query language, Cypher.
+*   **Graph Database:** The application utilizes the Neo4j graph database to establish relationships between books, authors, genres, and other metadata, allowing for more efficient and flexible searches.
+*   **User-Friendly Interface:** The website offers an intuitive and user-friendly interface, making it easy for both book enthusiasts and casual readers to navigate and find books of interest.
+*   **Responsive Design:** The application is designed to be responsive, ensuring that users can access it from various devices and screen sizes.
 
 ## Data Model for books finder
+
 <img src='img/Bookstore Data Model.png' width='80%'>
+
+## Contribution
+
+Contributions to the project are welcome! If you find any bugs or have suggestions for improvements, feel free to create an issue or submit a pull request. Let's collaborate and make GraphBook Finder even better!
+
+## License
+
+This project is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License). Feel free to use, modify, and distribute the code according to the terms of the license.
+
+## Contact
+
+If you have any questions or need further assistance, you can reach out to the project maintainers:
+
+*   Name: Pathompong Muangthong
+*   GitHub: [@p4zaa](https://github.com/p4zaa)
+
+Thank you for using GraphBook Finder! Happy book searching! 📚✨
 
 ---
 <img src='img/SCR-25660430-mzgb.png'>
