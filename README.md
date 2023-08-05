@@ -11,7 +11,7 @@ Checkout my ISBN-based scrapping here: [ScrapBook-ISBN-based-retrieval](https://
 ## Live Site Demo
 
 The live demo version of the application can be accessed [here](https://chaloklum-books.glitch.me). </br>
-> The demo website might take time to start the project server. </br>
+> Due to inactive projects go to sleep and wake up on request. The demo website might take a little time to start the project. </br>
 <img src='img/SCR-25660430-mtvo.png' width='50%'>
 
 ## Tools and Frameworks
