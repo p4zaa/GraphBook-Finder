@@ -35,7 +35,7 @@ The project is built using the following tools and frameworks:
 
 <img src='img/db.schema.visualization.png' width='90%'>
 
-## Process overview
+## Overview
 
 <img src='img/book finder overview 2.png' width='60%'>
 
